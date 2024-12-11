@@ -143,10 +143,10 @@ switch floor(Type/10)
                         Para.R_ac;
                         Para.wL_dc;
                         Para.R_dc;
-                        Para.w0;
                         Para.R;
                         Para.K;
-                        Para.N];
+                        Para.N;
+                        Para.w0];
     
     % ### Otherwise
     otherwise

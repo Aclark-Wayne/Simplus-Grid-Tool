@@ -212,11 +212,10 @@ Para2100.wL_ac  = 0.05;
 Para2100.R_ac   = 0.01;
 Para2100.wL_dc  = 0.02;
 Para2100.R_dc   = 0.02/5;
-
-Para2100.w0     = W0;   
 Para2100.R      = 0.05;
 Para2100.K      = 1;
 Para2100.N      = 1;
+Para2100.w0     = W0;   
 
 %% Re-arrange apparatus data
 
@@ -336,6 +335,19 @@ for i = 1:length(row)
             case 6;  ParaCell{row(i)}.fidq  = UserValue;
             case 7;  ParaCell{row(i)}.fvdc  = UserValue;
             case 8;  ParaCell{row(i)}.fpll  = UserValue;
+            otherwise
+                error(['Error: parameter overflow, bus ' num2str(AppBus) 'type ' num2str(AppType) '.']);
+        end
+            elseif floor(AppType/10) == 210 % Interlink ac-dc converter
+        switch SwitchFlag
+            case 1;  ParaCell{row(i)}.C_dc  = UserValue;
+            case 2;  ParaCell{row(i)}.wL_ac = UserValue;
+            case 3;  ParaCell{row(i)}.R_ac  = UserValue;
+            case 4;  ParaCell{row(i)}.wL_dc = UserValue;
+            case 5;  ParaCell{row(i)}.R_dc  = UserValue;
+            case 6;  ParaCell{row(i)}.R  = UserValue;
+            case 7;  ParaCell{row(i)}.K  = UserValue;
+            case 8;  ParaCell{row(i)}.N  = UserValue;
             otherwise
                 error(['Error: parameter overflow, bus ' num2str(AppBus) 'type ' num2str(AppType) '.']);
         end

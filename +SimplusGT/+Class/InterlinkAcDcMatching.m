@@ -67,7 +67,7 @@ classdef InterlinkAcDcMatching < SimplusGT.Class.ModelAdvance
             
             % Get parameters
             wL_ac = obj.Para(2);
-            W0 = obj.Para(6);
+            W0 = obj.Para(9);
             L_ac  = wL_ac/W0;
             R_ac  = obj.Para(3);
             R_dc  = obj.Para(5);
@@ -91,9 +91,6 @@ classdef InterlinkAcDcMatching < SimplusGT.Class.ModelAdvance
             v_dc = Vg_dc - i*R_dc;
             ang_r = 0;
                      
-            p_ac = e_d*i_d + e_q*i_q;
-            p_dc = v_dc*i;
-
             % Protected Temp
             obj.e_dq = e_dq;
 
@@ -114,13 +111,11 @@ classdef InterlinkAcDcMatching < SimplusGT.Class.ModelAdvance
             xR_ac= obj.Para(3);
             xwL_dc= obj.Para(4);
             xR_dc= obj.Para(5);
-            W0= obj.Para(6);
-
-            R = obj.Para(7);
-            K = obj.Para(8);     
-            N = obj.Para(9);   
-            
-           
+            R = obj.Para(6);
+            K = obj.Para(7);     
+            N = obj.Para(8);
+            W0= obj.Para(9);
+                       
             L_ac    = xwL_ac/W0;
             R_ac    = xR_ac;
         	L_dc    = xwL_dc/W0;
